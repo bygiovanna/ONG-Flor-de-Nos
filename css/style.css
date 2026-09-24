@@ -1,0 +1,630 @@
+/* 1. VARIÁVEIS DO DESIGN SYSTEM */
+
+:root {
+    --cor-primaria: #992075;
+    --cor-secundaria: #f3e1ec;
+    --cor-destaque: #fa4eb8;
+    --cor-fundo: #fbf6f8;
+    --cor-branca: #ffffff;
+    --cor-texto: #333333;
+    --cor-texto-claro: #666666;
+    --cor-borda: #e3d0dd;
+
+    --fonte-pequena: 0.875rem;
+    --fonte-normal: 1rem;
+    --fonte-media: 1.25rem;
+    --fonte-grande: 1.75rem;
+    --fonte-titulo: 2.25rem;
+
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 16px;
+    --espaco-4: 24px;
+    --espaco-5: 32px;
+    --espaco-6: 48px;
+}
+
+
+/* 2. CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: var(--fonte-normal);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    line-height: 1.6;
+}
+
+
+/* 3. CABEÇALHO */
+
+header {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    padding: var(--espaco-5);
+    text-align: center;
+    position: relative;
+}
+
+header .logo {
+    position: absolute;
+    top: var(--espaco-3);
+    left: var(--espaco-3);
+    width: 70px;
+    height: auto;
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: var(--espaco-4);
+    font-size: var(--fonte-titulo);
+}
+
+
+/* 4. MENU DE NAVEGAÇÃO */
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--espaco-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-list li {
+    position: relative;
+}
+
+.menu-list a {
+    display: block;
+    color: var(--cor-branca);
+    text-decoration: none;
+    font-weight: bold;
+    padding: var(--espaco-2);
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-list a:hover {
+    background-color: var(--cor-destaque);
+}
+
+
+/* 5. SUBMENU / DROPDOWN */
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    margin: 0;
+    padding: var(--espaco-2);
+    list-style: none;
+    background-color: var(--cor-primaria);
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 1000;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu a {
+    width: 100%;
+}
+
+
+/* 6. BOTÃO HAMBÚRGUER
+   Posicionado no canto superior DIREITO do cabeçalho.
+   Fica oculto em telas grandes e aparece apenas no mobile. */
+
+.menu-toggle {
+    display: none;           /* oculto por padrão */
+    position: absolute;      /* posicionamento absoluto dentro do header */
+    top: var(--espaco-3);
+    right: var(--espaco-3);  /* canto superior direito */
+    border: none;
+    background: none;
+    color: var(--cor-branca);
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+
+/* 7. GRID PRINCIPAL */
+
+main {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--espaco-4);
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--espaco-6) var(--espaco-4);
+}
+
+#app {
+    display: contents;
+}
+
+
+/* 8. SEÇÕES DOS PROJETOS */
+
+section {
+    margin-bottom: var(--espaco-6);
+}
+
+#doacoes   { grid-column: 2 / 7; }
+#educacao  { grid-column: 7 / 12; }
+#comunidade{ grid-column: 2 / 7; }
+#eventos   { grid-column: 7 / 12; }
+
+
+/* SEÇÕES DA PÁGINA INICIAL */
+
+.pagina-inicial section:nth-of-type(1) { grid-column: 2 / 7; }
+.pagina-inicial section:nth-of-type(2) { grid-column: 7 / 12; }
+
+
+/* PÁGINA DE CADASTRO */
+
+#app.cadastro {
+    display: contents;
+}
+
+#app.cadastro > h2,
+#app.cadastro > p,
+#app.cadastro > form,
+#app.cadastro > section {
+    grid-column: 2 / 12;
+}
+
+#app.cadastro > h2 {
+    margin-bottom: 0;
+}
+
+
+/* 10. GALERIA */
+
+.galeria {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.galeria img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* 11. ARTIGOS / PROJETOS */
+
+article {
+    background-color: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: var(--espaco-4);
+    margin-bottom: var(--espaco-3);
+}
+
+article p {
+    color: var(--cor-texto-claro);
+}
+
+
+/* 12. TÍTULOS */
+
+h2 {
+    color: var(--cor-destaque);
+    font-size: var(--fonte-grande);
+}
+
+h3 {
+    color: var(--cor-destaque);
+    font-size: var(--fonte-media);
+}
+
+
+/* 13. FORMULÁRIO */
+
+form {
+    background-color: var(--cor-branca);
+    padding: var(--espaco-5);
+    border-radius: 10px;
+    border: 1px solid var(--cor-borda);
+}
+
+
+/* 14. FIELDSET */
+
+fieldset {
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: var(--espaco-4);
+    margin-bottom: var(--espaco-4);
+}
+
+legend {
+    color: var(--cor-destaque);
+    font-weight: bold;
+    padding: 0 var(--espaco-2);
+}
+
+
+/* 15. CAMPOS DO FORMULÁRIO */
+
+label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: var(--espaco-2);
+    margin-top: var(--espaco-1);
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    font-size: var(--fonte-normal);
+    background-color: var(--cor-branca);
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* 16. FOCO DOS CAMPOS */
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 2px var(--cor-secundaria);
+}
+
+
+/* 17. VALIDAÇÃO VISUAL
+   campo-invalido → vermelho (erro)
+   campo-valido   → verde   (correto) */
+
+.campo-invalido {
+    border-color: #d33 !important;
+    box-shadow: 0 0 0 2px rgba(221, 51, 51, 0.15);
+}
+
+.campo-valido {
+    border-color: #4caf50 !important;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.15);
+}
+
+.mensagem-erro {
+    display: block;
+    color: #d33;
+    font-size: var(--fonte-pequena);
+    margin-top: 4px;
+    min-height: 1.2em;   /* evita "pulos" de layout */
+}
+
+
+/* 18. RADIO BUTTONS */
+
+input[type="radio"] {
+    width: auto;
+    margin-right: var(--espaco-1);
+}
+
+
+/* 19. BOTÕES */
+
+button {
+    padding: var(--espaco-2) var(--espaco-4);
+    border: none;
+    border-radius: 6px;
+    background-color: var(--cor-destaque);
+    color: var(--cor-branca);
+    font-size: var(--fonte-normal);
+    cursor: pointer;
+    margin-right: var(--espaco-2);
+    transition:
+        background-color 0.3s ease,
+        transform 0.1s ease,
+        box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--cor-primaria);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus {
+    outline: 2px solid var(--cor-destaque);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* 20. BADGE */
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    font-size: var(--fonte-pequena);
+    font-weight: bold;
+}
+
+
+/* 21. ALERTA */
+
+.alerta {
+    padding: var(--espaco-2) var(--espaco-3);
+    margin-top: var(--espaco-3);
+    background-color: var(--cor-secundaria);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 4px;
+    font-size: var(--fonte-pequena);
+}
+
+
+/* 22. TOAST */
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: var(--espaco-3) var(--espaco-4);
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+    z-index: 2000;
+}
+
+.toast.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* 23. RODAPÉ */
+
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-branca);
+    text-align: center;
+    padding: var(--espaco-4);
+    margin-top: var(--espaco-6);
+}
+
+
+/* 24. BREAKPOINT — TELAS GRANDES (> 1280px) */
+
+@media (min-width: 1281px) {
+    main { max-width: 1100px; }
+}
+
+
+/* 25. BREAKPOINT — NOTEBOOK (1025px – 1280px) */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    main { max-width: 1000px; }
+    .galeria { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* 26. BREAKPOINT — TABLET (769px – 1024px) */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    main { max-width: 90%; }
+
+    #doacoes, #comunidade { grid-column: 1 / 7; }
+    #educacao, #eventos   { grid-column: 7 / 13; }
+
+    #app.cadastro > h2,
+    #app.cadastro > p,
+    #app.cadastro > form,
+    #app.cadastro > section { grid-column: 1 / 13; }
+
+    .galeria { grid-template-columns: repeat(3, 1fr); }
+}
+
+
+/* 27. BREAKPOINT — TABLET PEQUENO (601px – 768px) */
+
+@media (min-width: 601px) and (max-width: 768px) {
+
+    .pagina-inicial section:nth-of-type(1),
+    .pagina-inicial section:nth-of-type(2) { grid-column: 1 / 13; }
+
+    header { padding: var(--espaco-4); }
+
+    header .logo {
+        position: absolute;
+        top: var(--espaco-3);
+        left: var(--espaco-3);
+        width: 70px;
+    }
+
+    h1 { font-size: 1.8rem; }
+
+    /* Hambúrguer visível no canto direito */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: var(--espaco-3);
+        right: var(--espaco-3);
+    }
+
+    .menu { display: block; }
+
+    .menu-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--espaco-2);
+        margin-top: var(--espaco-3);
+    }
+
+    .menu-list.active { display: flex; }
+
+    .menu-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .dropdown:hover   .submenu { display: none; }
+    .dropdown:focus-within .submenu { display: block; }
+
+    main {
+        max-width: 100%;
+        grid-template-columns: repeat(12, 1fr);
+        padding: var(--espaco-4);
+    }
+
+    #doacoes, #educacao, #comunidade, #eventos { grid-column: 1 / 13; }
+
+    #app.cadastro > h2,
+    #app.cadastro > p,
+    #app.cadastro > form,
+    #app.cadastro > section { grid-column: 1 / 13; }
+
+    .galeria { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* 28. BREAKPOINT — MOBILE (até 600px) */
+
+@media (max-width: 600px) {
+
+    header { padding: var(--espaco-3); }
+
+    header .logo {
+        position: absolute;
+        top: var(--espaco-3);
+        left: var(--espaco-3);
+        width: 60px;
+    }
+
+    h1 { font-size: 1.5rem; }
+
+    /* Hambúrguer visível no canto direito */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: var(--espaco-3);
+        right: var(--espaco-3);
+    }
+
+    .menu { display: block; }
+
+    .menu-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--espaco-2);
+        margin-top: var(--espaco-3);
+    }
+
+    .menu-list.active { display: flex; }
+
+    .menu-list li { width: 100%; text-align: center; }
+
+    .submenu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .dropdown:hover   .submenu { display: none; }
+    .dropdown:focus-within .submenu { display: block; }
+
+    main { padding: var(--espaco-3); }
+
+    #doacoes, #educacao, #comunidade, #eventos { grid-column: 1 / 13; }
+
+    #app.cadastro > h2,
+    #app.cadastro > p,
+    #app.cadastro > form,
+    #app.cadastro > section { grid-column: 1 / 13; }
+
+    .galeria { grid-template-columns: 1fr; }
+    .galeria img { height: 250px; }
+
+    form     { padding: var(--espaco-3); }
+    fieldset { padding: var(--espaco-3); }
+
+    .toast {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        text-align: center;
+    }
+}
+
+/* 29. GRÁFICO DE IMPACTO */
+
+.grafico-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background-color: var(--cor-branca);
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
+    padding: var(--espaco-4);
+}
+
+#impacto {
+    grid-column: 2 / 12; /* ocupa a largura útil do grid */
+}

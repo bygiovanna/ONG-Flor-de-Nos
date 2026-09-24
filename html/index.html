@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <title>ONG Flor de Nós</title>
+</head>
+
+<body>
+    <header>
+
+        <img src="../imagens/logo_ong.png" alt="Logo da ONG Flor de Nós" class="logo">
+
+        <h1>ONG Flor de Nós</h1>
+
+        <nav class="menu">
+
+            <button class="menu-toggle" aria-label="Abrir menu">
+                ☰
+            </button>
+
+            <ul class="menu-list">
+
+                <li>
+                    <a href="#inicio">Início</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#projetos">Projetos</a>
+
+                    <ul class="submenu">
+                        <li>
+                            <a href="#doacoes">Doações</a>
+                        </li>
+
+                        <li>
+                            <a href="#educacao">Educação</a>
+                        </li>
+
+                        <li>
+                            <a href="#comunidade">Comunidade</a>
+                        </li>
+
+                        <li>
+                            <a href="#eventos">Eventos</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#cadastro">Cadastro</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main class="pagina-inicial">
+
+        <div id="app"></div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 ONG Flor de Nós</p>
+        <p>E-mail: contato@flordenos.org</p>
+        <p>Telefone: (11) 99999-9999</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menuList = document.querySelector(".menu-list");
+
+        menuToggle.addEventListener("click", function () {
+            menuList.classList.toggle("active");
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <script type="module" src="../js/main.js"></script>
+
+</body>
+
+</html>
