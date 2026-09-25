@@ -7,7 +7,7 @@ function renderInicio() {
 
     app.innerHTML = `
         <div class="galeria">
-            <img src="../imagens/oficina-artesanato.png.png"
+            <img src="../imagens/oficina-artesanato.png"
                 alt="Voluntários da ONG Flor de Nós realizando uma oficina de artesanato com materiais recicláveis">
             <img src="../imagens/doação_roupas.jfif"
                 alt="Dia da doação de roupas da ONG Flor de Nós, com voluntários ajudando a organizar as doações">
@@ -118,34 +118,34 @@ function renderCadastro() {
                 <label for="nome">Nome completo:</label>
                 <input type="text" id="nome" name="nome" placeholder="Seu nome completo"
                     autocomplete="name">
-                <small class="mensagem-erro" id="erroNome"></small>
+                <small class="mensagem-erro" id="erroNome" role="alert"></small>
 
                 <br><br>
 
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" placeholder="seu@email.com"
                     autocomplete="email">
-                <small class="mensagem-erro" id="erroEmail"></small>
+                <small class="mensagem-erro" id="erroEmail" role="alert"></small>
 
                 <br><br>
 
                 <label for="nascimento">Data de nascimento:</label>
                 <input type="date" id="nascimento" name="nascimento">
-                <small class="mensagem-erro" id="erroNascimento"></small>
+                <small class="mensagem-erro" id="erroNascimento" role="alert"></small>
 
                 <br><br>
 
                 <label for="cpf">CPF:</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"
                     maxlength="14" inputmode="numeric">
-                <small class="mensagem-erro" id="erroCpf"></small>
+                <small class="mensagem-erro" id="erroCpf" role="alert"></small>
 
                 <br><br>
 
                 <label for="telefone">Telefone:</label>
                 <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999"
                     maxlength="15" inputmode="numeric">
-                <small class="mensagem-erro" id="erroTelefone"></small>
+                <small class="mensagem-erro" id="erroTelefone" role="alert"></small>
             </fieldset>
 
             <br>
@@ -155,22 +155,22 @@ function renderCadastro() {
 
                 <label for="cep">CEP:</label>
                 <input type="text" id="cep" name="cep" placeholder="00000-000"
-                    maxlength="9" inputmode="numeric">
-                <small class="mensagem-erro" id="erroCep"></small>
+                    maxlength="9" inputmode="numeric"> 
+                <small class="mensagem-erro" id="erroCep" role="alert"></small>
 
                 <br><br>
 
                 <label for="endereco">Endereço:</label>
                 <input type="text" id="endereco" name="endereco"
                     autocomplete="street-address">
-                <small class="mensagem-erro" id="erroEndereco"></small>
+                <small class="mensagem-erro" id="erroEndereco" role="alert"></small>
 
                 <br><br>
 
                 <label for="cidade">Cidade:</label>
                 <input type="text" id="cidade" name="cidade"
                     autocomplete="address-level2">
-                <small class="mensagem-erro" id="erroCidade"></small>
+                <small class="mensagem-erro" id="erroCidade" role="alert"></small>
 
                 <br><br>
 
@@ -205,7 +205,7 @@ function renderCadastro() {
                     <option value="SE">Sergipe</option>
                     <option value="TO">Tocantins</option>
                 </select>
-                <small class="mensagem-erro" id="erroEstado"></small>
+                <small class="mensagem-erro" id="erroEstado" role="alert"></small>
             </fieldset>
 
             <br>
@@ -219,7 +219,7 @@ function renderCadastro() {
                 <input type="radio" id="doador" name="participacao" value="doador">
                 <label for="doador">Doador</label>
 
-                <small class="mensagem-erro" id="erroParticipacao"></small>
+                <small class="mensagem-erro" id="erroParticipacao" role="alert"></small>
             </fieldset>
 
             <br>
