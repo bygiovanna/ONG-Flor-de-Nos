@@ -53,4 +53,4 @@ Aplicar na prática os conteúdos estudados durante a disciplina, desenvolvendo 
 
 **Giovanna De Moraes Mendes Silva**
 
-Estudante de Engenharia de Software.
+Estudante de Engenharia de Software na Universidade Cruzeiro do Sul.
