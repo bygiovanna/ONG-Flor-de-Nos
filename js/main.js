@@ -6,3 +6,7 @@ export { app };
 
 window.addEventListener("hashchange", roteador);
 roteador();
+
+import { iniciarTema } from "./theme.js";
+
+iniciarTema();

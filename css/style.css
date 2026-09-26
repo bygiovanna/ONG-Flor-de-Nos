@@ -1,14 +1,18 @@
 /* 1. VARIÁVEIS DO DESIGN SYSTEM */
 
 :root {
-    --cor-primaria: #992075;
+    --cor-primaria: #861c73;
+    --cor-header: #4a1440;
     --cor-secundaria: #f3e1ec;
-    --cor-destaque: #fa4eb8;
+    --cor-destaque: #611747;
     --cor-fundo: #fbf6f8;
     --cor-branca: #ffffff;
+    --cor-superficie: #ffffff;
     --cor-texto: #333333;
-    --cor-texto-claro: #666666;
+    --cor-texto-claro: #505050;
     --cor-borda: #e3d0dd;
+
+    color-scheme: light;
 
     --fonte-pequena: 0.875rem;
     --fonte-normal: 1rem;
@@ -48,7 +52,7 @@ body {
 /* 3. CABEÇALHO */
 
 header {
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-header);
     color: var(--cor-branca);
     padding: var(--espaco-5);
     text-align: center;
@@ -106,6 +110,12 @@ h1 {
     background-color: var(--cor-destaque);
 }
 
+.menu-list a:focus,
+.submenu a:focus {
+    outline: 2px solid var(--cor-branca);
+    outline-offset: 2px;
+}
+
 
 /* 5. SUBMENU / DROPDOWN */
 
@@ -137,15 +147,11 @@ h1 {
 }
 
 
-/* 6. BOTÃO HAMBÚRGUER
-   Posicionado no canto superior DIREITO do cabeçalho.
-   Fica oculto em telas grandes e aparece apenas no mobile. */
+/* 6. BOTÃO HAMBÚRGUER */
 
 .menu-toggle {
-    display: none;           /* oculto por padrão */
-    position: absolute;      /* posicionamento absoluto dentro do header */
-    top: var(--espaco-3);
-    right: var(--espaco-3);  /* canto superior direito */
+    display: none;
+    position: absolute;
     border: none;
     background: none;
     color: var(--cor-branca);
@@ -153,6 +159,7 @@ h1 {
     cursor: pointer;
     z-index: 100;
 }
+
 
 
 /* 7. GRID PRINCIPAL */
@@ -178,16 +185,32 @@ section {
     margin-bottom: var(--espaco-6);
 }
 
-#doacoes   { grid-column: 2 / 7; }
-#educacao  { grid-column: 7 / 12; }
-#comunidade{ grid-column: 2 / 7; }
-#eventos   { grid-column: 7 / 12; }
+#doacoes {
+    grid-column: 2 / 7;
+}
+
+#educacao {
+    grid-column: 7 / 12;
+}
+
+#comunidade {
+    grid-column: 2 / 7;
+}
+
+#eventos {
+    grid-column: 7 / 12;
+}
 
 
 /* SEÇÕES DA PÁGINA INICIAL */
 
-.pagina-inicial section:nth-of-type(1) { grid-column: 2 / 7; }
-.pagina-inicial section:nth-of-type(2) { grid-column: 7 / 12; }
+.pagina-inicial section:nth-of-type(1) {
+    grid-column: 2 / 7;
+}
+
+.pagina-inicial section:nth-of-type(2) {
+    grid-column: 7 / 12;
+}
 
 
 /* PÁGINA DE CADASTRO */
@@ -196,14 +219,14 @@ section {
     display: contents;
 }
 
-#app.cadastro > h2,
-#app.cadastro > p,
-#app.cadastro > form,
-#app.cadastro > section {
+#app.cadastro>h2,
+#app.cadastro>p,
+#app.cadastro>form,
+#app.cadastro>section {
     grid-column: 2 / 12;
 }
 
-#app.cadastro > h2 {
+#app.cadastro>h2 {
     margin-bottom: 0;
 }
 
@@ -229,7 +252,7 @@ section {
 /* 11. ARTIGOS / PROJETOS */
 
 article {
-    background-color: var(--cor-branca);
+    background-color: var(--cor-superficie);
     border: 1px solid var(--cor-borda);
     border-radius: 10px;
     padding: var(--espaco-4);
@@ -257,7 +280,7 @@ h3 {
 /* 13. FORMULÁRIO */
 
 form {
-    background-color: var(--cor-branca);
+    background-color: var(--cor-superficie);
     padding: var(--espaco-5);
     border-radius: 10px;
     border: 1px solid var(--cor-borda);
@@ -294,10 +317,17 @@ select {
     border: 1px solid var(--cor-borda);
     border-radius: 6px;
     font-size: var(--fonte-normal);
-    background-color: var(--cor-branca);
+    color: var(--cor-texto);
+    background-color: var(--cor-superficie);
     transition:
         border-color 0.2s ease,
         box-shadow 0.2s ease;
+}
+
+input::placeholder,
+select::placeholder{
+    color:var(--cor-texto-claro);
+    opacity: 1;
 }
 
 
@@ -311,9 +341,7 @@ select:focus {
 }
 
 
-/* 17. VALIDAÇÃO VISUAL
-   campo-invalido → vermelho (erro)
-   campo-valido   → verde   (correto) */
+/* 17. VALIDAÇÃO VISUAL */
 
 .campo-invalido {
     border-color: #d33 !important;
@@ -330,7 +358,7 @@ select:focus {
     color: #d33;
     font-size: var(--fonte-pequena);
     margin-top: 4px;
-    min-height: 1.2em;   /* evita "pulos" de layout */
+    min-height: 1.2em;
 }
 
 
@@ -378,6 +406,27 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* Botão Modo Escuro */
+
+#btnDarkMode {
+    position: absolute;
+    top: var(--espaco-3);
+    right: 70px;
+    background-color: var(--cor-branca);
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-branca);
+    font-size: var(--fonte-pequena);
+    padding: 8px 12px;
+}
+
+#btnDarkMode:hover {
+    background-color: var(--cor-secundaria);
+}
+
+#btnDarkMode:focus {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
 
 /* 20. BADGE */
 
@@ -435,7 +484,7 @@ button:disabled {
 /* 23. RODAPÉ */
 
 footer {
-    background-color: var(--cor-primaria);
+    background-color: var(--cor-header);
     color: var(--cor-branca);
     text-align: center;
     padding: var(--espaco-4);
@@ -446,32 +495,52 @@ footer {
 /* 24. BREAKPOINT — TELAS GRANDES (> 1280px) */
 
 @media (min-width: 1281px) {
-    main { max-width: 1100px; }
+    main {
+        max-width: 1100px;
+    }
 }
 
 
 /* 25. BREAKPOINT — NOTEBOOK (1025px – 1280px) */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-    main { max-width: 1000px; }
-    .galeria { grid-template-columns: repeat(3, 1fr); }
+    main {
+        max-width: 1000px;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 
 /* 26. BREAKPOINT — TABLET (769px – 1024px) */
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    main { max-width: 90%; }
+    main {
+        max-width: 90%;
+    }
 
-    #doacoes, #comunidade { grid-column: 1 / 7; }
-    #educacao, #eventos   { grid-column: 7 / 13; }
+    #doacoes,
+    #comunidade {
+        grid-column: 1 / 7;
+    }
 
-    #app.cadastro > h2,
-    #app.cadastro > p,
-    #app.cadastro > form,
-    #app.cadastro > section { grid-column: 1 / 13; }
+    #educacao,
+    #eventos {
+        grid-column: 7 / 13;
+    }
 
-    .galeria { grid-template-columns: repeat(3, 1fr); }
+    #app.cadastro>h2,
+    #app.cadastro>p,
+    #app.cadastro>form,
+    #app.cadastro>section {
+        grid-column: 1 / 13;
+    }
+
+    .galeria {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 
@@ -480,9 +549,13 @@ footer {
 @media (min-width: 601px) and (max-width: 768px) {
 
     .pagina-inicial section:nth-of-type(1),
-    .pagina-inicial section:nth-of-type(2) { grid-column: 1 / 13; }
+    .pagina-inicial section:nth-of-type(2) {
+        grid-column: 1 / 13;
+    }
 
-    header { padding: var(--espaco-4); }
+    header {
+        padding: var(--espaco-4);
+    }
 
     header .logo {
         position: absolute;
@@ -491,7 +564,9 @@ footer {
         width: 70px;
     }
 
-    h1 { font-size: 1.8rem; }
+    h1 {
+        font-size: 1.8rem;
+    }
 
     /* Hambúrguer visível no canto direito */
     .menu-toggle {
@@ -501,7 +576,16 @@ footer {
         right: var(--espaco-3);
     }
 
-    .menu { display: block; }
+    /* Evita que o botão de modo escuro fique sobreposto */
+    #btnDarkMode {
+        position: static;
+        display: inline-block;
+        margin: 0 auto var(--espaco-3);
+    }
+
+    .menu {
+        display: block;
+    }
 
     .menu-list {
         display: none;
@@ -511,7 +595,9 @@ footer {
         margin-top: var(--espaco-3);
     }
 
-    .menu-list.active { display: flex; }
+    .menu-list.active {
+        display: flex;
+    }
 
     .menu-list li {
         width: 100%;
@@ -524,8 +610,13 @@ footer {
         box-shadow: none;
     }
 
-    .dropdown:hover   .submenu { display: none; }
-    .dropdown:focus-within .submenu { display: block; }
+    .dropdown:hover .submenu {
+        display: none;
+    }
+
+    .dropdown:focus-within .submenu {
+        display: block;
+    }
 
     main {
         max-width: 100%;
@@ -533,14 +624,23 @@ footer {
         padding: var(--espaco-4);
     }
 
-    #doacoes, #educacao, #comunidade, #eventos { grid-column: 1 / 13; }
+    #doacoes,
+    #educacao,
+    #comunidade,
+    #eventos {
+        grid-column: 1 / 13;
+    }
 
-    #app.cadastro > h2,
-    #app.cadastro > p,
-    #app.cadastro > form,
-    #app.cadastro > section { grid-column: 1 / 13; }
+    #app.cadastro>h2,
+    #app.cadastro>p,
+    #app.cadastro>form,
+    #app.cadastro>section {
+        grid-column: 1 / 13;
+    }
 
-    .galeria { grid-template-columns: repeat(2, 1fr); }
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
@@ -548,7 +648,9 @@ footer {
 
 @media (max-width: 600px) {
 
-    header { padding: var(--espaco-3); }
+    header {
+        padding: var(--espaco-3);
+    }
 
     header .logo {
         position: absolute;
@@ -557,7 +659,9 @@ footer {
         width: 60px;
     }
 
-    h1 { font-size: 1.5rem; }
+    h1 {
+        font-size: 1.5rem;
+    }
 
     /* Hambúrguer visível no canto direito */
     .menu-toggle {
@@ -567,7 +671,9 @@ footer {
         right: var(--espaco-3);
     }
 
-    .menu { display: block; }
+    .menu {
+        display: block;
+    }
 
     .menu-list {
         display: none;
@@ -577,9 +683,14 @@ footer {
         margin-top: var(--espaco-3);
     }
 
-    .menu-list.active { display: flex; }
+    .menu-list.active {
+        display: flex;
+    }
 
-    .menu-list li { width: 100%; text-align: center; }
+    .menu-list li {
+        width: 100%;
+        text-align: center;
+    }
 
     .submenu {
         position: static;
@@ -587,23 +698,47 @@ footer {
         box-shadow: none;
     }
 
-    .dropdown:hover   .submenu { display: none; }
-    .dropdown:focus-within .submenu { display: block; }
+    .dropdown:hover .submenu {
+        display: none;
+    }
 
-    main { padding: var(--espaco-3); }
+    .dropdown:focus-within .submenu {
+        display: block;
+    }
 
-    #doacoes, #educacao, #comunidade, #eventos { grid-column: 1 / 13; }
+    main {
+        padding: var(--espaco-3);
+    }
 
-    #app.cadastro > h2,
-    #app.cadastro > p,
-    #app.cadastro > form,
-    #app.cadastro > section { grid-column: 1 / 13; }
+    #doacoes,
+    #educacao,
+    #comunidade,
+    #eventos {
+        grid-column: 1 / 13;
+    }
 
-    .galeria { grid-template-columns: 1fr; }
-    .galeria img { height: 250px; }
+    #app.cadastro>h2,
+    #app.cadastro>p,
+    #app.cadastro>form,
+    #app.cadastro>section {
+        grid-column: 1 / 13;
+    }
 
-    form     { padding: var(--espaco-3); }
-    fieldset { padding: var(--espaco-3); }
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria img {
+        height: 250px;
+    }
+
+    form {
+        padding: var(--espaco-3);
+    }
+
+    fieldset {
+        padding: var(--espaco-3);
+    }
 
     .toast {
         left: 20px;
@@ -619,12 +754,40 @@ footer {
     position: relative;
     width: 100%;
     height: 320px;
-    background-color: var(--cor-branca);
+    background-color: var(--cor-superficie);
     border: 1px solid var(--cor-borda);
     border-radius: 10px;
     padding: var(--espaco-4);
 }
 
 #impacto {
-    grid-column: 2 / 12; /* ocupa a largura útil do grid */
+    grid-column: 2 / 12;
+    /* ocupa a largura útil do grid */
+}
+
+
+/* 31. MODO ESCURO */
+
+.dark-mode {
+    color-scheme: dark;
+
+    --cor-primaria: #992075;
+    --cor-header: #4A1440;
+    --cor-secundaria: #2B1C29;
+    --cor-destaque: #E06CBD;
+    --cor-fundo: #121212;
+    --cor-superficie: #201421;
+    --cor-branca: #FBEFF7;
+    --cor-texto: #F2F2F2;
+    --cor-texto-claro: #BDBDBD;
+    --cor-borda: #7F6B7B;
+}
+
+/* Ajustes pontuais de contraste no modo escuro */
+.dark-mode .badge {
+    color: var(--cor-destaque);
+}
+
+.dark-mode .mensagem-erro {
+    color: #FF6B6B;
 }
