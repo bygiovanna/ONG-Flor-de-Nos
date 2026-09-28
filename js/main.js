@@ -1,4 +1,4 @@
-import "../CSS/style.css";
+import "../css/style.css";
 
 import { roteador } from "./router.js";
 
