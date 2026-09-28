@@ -1,3 +1,5 @@
+import "../CSS/style.css";
+
 import { roteador } from "./router.js";
 
 const app = document.getElementById("app");
