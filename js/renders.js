@@ -2,16 +2,20 @@ import { app } from "./main.js";
 import { renderGraficoImpacto } from "./chart.js";
 import { configurarFormulario } from "./validation.js";
 
+import oficina from "../imagens/oficina-artesanato.webp";
+import doacoes from "../imagens/doação_roupas.webp";
+import equipe from "../imagens/equipe.webp";
+
 function renderInicio() {
     app.className = "pagina-inicial";
 
     app.innerHTML = `
         <div class="galeria">
-            <img src="../imagens/oficina-artesanato.png"
+            <img src="${oficina}"
                 alt="Voluntários da ONG Flor de Nós realizando uma oficina de artesanato com materiais recicláveis">
-            <img src="../imagens/doação_roupas.jfif"
+            <img src="${doacoes}"
                 alt="Dia da doação de roupas da ONG Flor de Nós, com voluntários ajudando a organizar as doações">
-            <img src="../imagens/equipe.jfif"
+            <img src="${equipe}"
                 alt="Nosso time de voluntários da ONG Flor de Nós, reunidos em uma foto de grupo">
         </div>
 
